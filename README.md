@@ -19,3 +19,18 @@ I don't plan on working on this project alone. It would take me an insane amount
 The game is based on the works of the SCP Foundation community (https://www.scp-wiki.net/) as well as the SCP: Containment Breach modding community as a whole.
 
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/HNT8/SCPCBR_Native">SCP: Containment Breach Remastered</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/hlpdev">Hunter Pollock</a> & the <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/HNT8">HNT8 Organization</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution-NonCommercial-ShareAlike 4.0 International</a></p>
+
+## Building (dependencias runtime)
+
+Para que el ejecutable funcione sin que cada usuario tenga que buscar librerías, el proyecto busca y copia automáticamente las DLLs desde `SCPCBR/Dependencies/bin` al directorio de salida.
+
+Opciones recomendadas:
+
+- Incluir los binarios precompilados (DLLs) en el repositorio bajo `SCPCBR/Dependencies/bin` antes de subir a GitHub. CMake copiará automáticamente las DLLs al compilar.
+- Si no quieres commitear binarios, los colaboradores pueden ejecutar desde la raíz del repo:
+
+	powershell -ExecutionPolicy Bypass -File scripts/fetch_deps.ps1
+
+  El script intenta localizar una instalación de MSYS2 (`C:\msys64\mingw64\bin`) o un compilador `g++` en PATH y copiará las DLLs necesarias a `SCPCBR/Dependencies/bin`.
+
+Después de esto, simplemente configura y compila normalmente con CMake; los DLLs serán colocados junto a `SCPCBR.exe`.

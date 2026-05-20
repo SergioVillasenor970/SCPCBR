@@ -1,0 +1,7 @@
+# Git LFS - para los binarios grandes de Dependencies/bin
+SCPCBR/Dependencies/bin/*.dll filter=lfs diff=lfs merge=lfs -text
+
+# Otros binarios en el proyecto
+cmake-build-debug/ export-ignore
+.git/ export-ignore
+
