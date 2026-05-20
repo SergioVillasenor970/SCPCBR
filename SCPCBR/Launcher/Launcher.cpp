@@ -32,7 +32,7 @@ void Launcher::Init(DiscordWrapper* discordWrapper) {
         Util::Error::Exit("The texture \"Assets\\GFX\\Window\\LauncherTitle.png\" failed to load. Ensure the file exists, or verify your game files.");
     }
 
-    AudioEngine::LoadSoundByName("Assets/SFX/Splash/Button.ogg", FMOD_2D);
+    AudioEngine::LoadSoundByName("Assets/SFX/Splash/Button.ogg", 0);
 }
 
 void InitializeGame(GLFWwindow* window) {

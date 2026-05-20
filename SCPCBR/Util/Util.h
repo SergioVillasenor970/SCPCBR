@@ -35,8 +35,8 @@ namespace Util {
     }
 
     namespace Error {
-        void Exit(const std::string& message);
-        void ExitFast();
+        [[noreturn]] void Exit(const std::string& message);
+        [[noreturn]] void ExitFast();
     }
 
     namespace Math {

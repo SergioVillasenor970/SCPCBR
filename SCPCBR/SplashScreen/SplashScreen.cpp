@@ -192,10 +192,10 @@ void SplashScreenThread() {
 
 Util::Image::Image* scpcbrImage = static_cast<Util::Image::Image*>(malloc(sizeof(Util::Image::Image)));
 
-FMOD::Channel* splashChannel;
+void* splashChannel;
 
 void SplashScreen::Init() {
-    AudioEngine::LoadSoundByName("Assets/SFX/Splash/Splash.mp3", FMOD_3D);
+    AudioEngine::LoadSoundByName("Assets/SFX/Splash/Splash.mp3", 1);
 
     bool res = LoadImageFromFile("Assets/GFX/Window/remastered2.png", scpcbrImage);
     if (!res) {
